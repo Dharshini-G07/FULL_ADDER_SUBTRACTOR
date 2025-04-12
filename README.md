@@ -37,19 +37,73 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+![image](https://github.com/user-attachments/assets/fbc3c695-3d3e-497c-9b5b-1a4889681b65)
+![image](https://github.com/user-attachments/assets/de1cb384-f360-45e4-ae31-e0f905eee8c1)
+
+
 
 **Procedure**
 
 Write the detailed procedure here
+**Full Adder:**
+1.Open Quartus II and create a new project.
+2.Use schematic design entry to draw the full adder circuit. 
+3.The circuit consists of XOR, AND, and OR gates. 
+4.Compile the design, verify its functionality through simulation. 
+5.Implement the design on the target device and program it.
+
+**Full Subtractor:** 
+1.Follow the same steps as for the full adder. 
+2.Draw the full subtractor circuit using schematic design. 
+3.The circuit includes XOR, AND, OR gates to perform subtraction. 
+4.Compile, simulate, implement, and program the design similarly to the full adder.
+
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+Developed by: G.Priyadharshini RegisterNumber:212224230209
 */
+```
+FULL ADDER
+module fulladder(a,b,cin,sum,carry);
+input a;
+input b;
+input cin;
+output sum;
+output carry;
+assign sum=a^b^cin;
+assign carry=(a&b)|(b&cin)|(cin&a);
+endmodule
+
+FULL SUBTRACTOR
+module fullsubtractor(a,b,cin,diff,borrow);
+input a;
+input b;
+input cin;
+output diff;
+output borrow;
+wire abar;
+assign abar=~a;
+assign diff=a^b^cin;
+assign borrow=(abar&b)|(b&cin)|(cin&abar);
+endmodule
+
+
+```
 
 **RTL Schematic**
 
+![image](https://github.com/user-attachments/assets/a4d67e1b-7cd1-4759-8f1f-e88cb65730f4)
+![image](https://github.com/user-attachments/assets/82c53afc-afe0-42bc-b272-1ba8daca8048)
+
+
 **Output Timing Waveform**
+
+![image](https://github.com/user-attachments/assets/ca34e5ec-ef55-474a-9c3f-86d27f2eef99)
+![image](https://github.com/user-attachments/assets/73971181-5c4c-4ad4-8577-dda6a95de846)
+
+
 
 **Result:**
 
